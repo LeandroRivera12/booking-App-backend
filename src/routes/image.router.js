@@ -10,6 +10,6 @@ imageRouter.route('/images')
     .post(verifyJWT, upload.single('image'), create);
 
 imageRouter.route('/images/:id')
-     .delete(verifyJWT, remove)
+     .delete(verifyJWT, remove);
 
 module.exports = imageRouter;

@@ -6,10 +6,10 @@ let token;
 
 test('POST/ users debe retornar el elemento creado', async () => {
     const body = {
-        firstName: "David", 
-        lastName: "Játiva", 
-        email: "montero@gmail.com", 
-        password: "montero1234", 
+        firstName: "leandro", 
+        lastName: "rivera", 
+        email: "riveraleandro@gmail.com", 
+        password: "leandro123", 
         gender: "MALE"
     }
     const res = await request(app).post('/users').send(body)
@@ -21,8 +21,8 @@ test('POST/ users debe retornar el elemento creado', async () => {
 
 test('POST / users/login debe hacer un login', async () => {
     const body = {
-        email: "montero@gmail.com", 
-        password: "montero1234"
+        email: "riveraleandro@gmail.com", 
+        password: "leandro1234"
     }
     const res = await request(app).post('/users/login').send(body)
     token = res.body.token
@@ -39,7 +39,7 @@ test('GET/ users debe retornar todo los usuarios ', async () => {
 
 test('PUT/ users/:id debe retornar el elemento modificado por su id', async () => {
     const body = {
-        firstName: "David actializado", 
+        firstName: "leandro actualizado", 
     }
     const res = await request(app).put(`/users/${id}`).send(body).set('Authorization', `Bearer ${token}`)
     expect(res.status).toBe(200);
@@ -50,8 +50,8 @@ test('PUT/ users/:id debe retornar el elemento modificado por su id', async () =
 
 test('POST / users/login debe dar credenciales incorecta un error', async () => {
     const body = {
-        email: "incorecto@gmail.com", 
-        password: "incorecto1234"
+        email: "incorrecto@gmail.com", 
+        password: "incorrecto1234"
     }
     const res = await request(app).post('/users/login').send(body)
     expect(res.status).toBe(401);
